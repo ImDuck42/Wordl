@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark">
+  <title>Wordle Tool</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+
+  <h1 id="title">Today's Word</h1>
+
+  <p id="loading" role="status">Loading valid words…</p>
+
+  <main id="app" hidden>
+
+    <section class="controls">
+      <label>
+        <input type="checkbox" id="disallow-solution">
+        <span id="disallow-label">Disallow the actual solution</span>
+      </label>
+      <button type="button" class="text-btn" id="reset-btn">Reset all</button>
+    </section>
+
+    <div class="headers">
+      <div class="header-block">Draw Colors</div>
+      <div class="header-block">Generated Words</div>
+    </div>
+
+    <div id="main-grid"></div>
+
+    <button type="button" class="footer-link" id="open-modal-link">View & search valid words</button>
+  </main>
+
+  <dialog id="word-modal" aria-labelledby="modal-title">
+    <div class="modal-content">
+      <form method="dialog" class="modal-header">
+        <h2 id="modal-title">Word Dictionary</h2>
+        <button class="modal-close" aria-label="Close">&times;</button>
+      </form>
+      <p class="dict-info" id="dict-info"></p>
+      <input
+        type="search"
+        id="word-search"
+        placeholder="Search words or patterns (e.g. duc, >yy, >nnnnc duc)…"
+        aria-label="Search words"
+        autocomplete="off"
+        spellcheck="false"
+      >
+      <div class="dict-count" id="dict-count" aria-live="polite"></div>
+      <div id="word-results"></div>
+    </div>
+  </dialog>
+
+</body>
+</html>
